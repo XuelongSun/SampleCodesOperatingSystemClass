@@ -6,12 +6,15 @@
 
 #### 进程调度
 ##### 调度算法
-本实验均采用抢占式(preemptive)调度算法：
-+ 先来先服务 FCFS
-+ 短作业优先 SJF $\to$ SRTF(shortest remaining time first)
-+ 高响应比优先：HRRN-Highest Response Ration Next
-+ 基于优先级的调度算法：priority based scheduling algorithm
-+ 轮转调度 round robin
++ 非抢占式((non-preemptive))作业调度
+  + 先来先服务 FCFS
+  + 短作业优先 SJF
++ 抢占式(preemptive)作业调度算法：
+  + RTF(shortest remaining time first)
++ 进程调度
+  + 高响应比优先：HRRN-Highest Response Ration Next
+  + 基于优先级的调度算法：priority based scheduling algorithm
+  + 轮转调度 round robin
 
 ##### 程序实现 
 进程调度是在OS中完成的，所以需要修改[实验3](../lab3/readme.md)中的`pyos.py`中的`OperatingSystem`类:
@@ -61,7 +64,7 @@ class PCB:
 ```
 
 #### Assignment
-+ 至少实现两种课上所教的可抢占式进程调度算法并完成思考题
++ 至少实现两种课上所教的可抢占式进程调度算法并完成思考题，每多实现一个算法，+1分，本实验最多得4分
 + 本实验的框架代码基于[实验3](../lab3/framework),不再提供框架代码
 + 提交一个压缩包`OS_Lab4_name.zip`，内容包括：
   + 修改后的`asm.py`,`cpu.py`,`pyos.py`以及2个以上的汇编文件以模拟两个以上的进程，

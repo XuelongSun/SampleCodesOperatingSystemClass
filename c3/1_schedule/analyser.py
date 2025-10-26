@@ -31,17 +31,28 @@ def metrics_gantt(gantt: List[Tuple[str,int,int]], arrivals: Dict[str,int], tota
     return {"avg_wait":avg_wait,"avg_turnaround":avg_turn,"avg_response":avg_resp,
             "throughput":throughput,"cpu_util":cpu_util}, per
 
-def plot_gantt(gantt: List[Tuple[str,int,int]], title: str):
+def plot_gantt(gantt: List[Tuple[str,int,int]], title: str, RT=None):
     order=[]; pos={}; 
     for n,s,e in gantt:
         if n not in pos: pos[n]=len(order); order.append(n)
     plt.figure(figsize=(8,2+0.4*len(order)))
     names = set([n for n,_,_ in gantt])
+    colors = {}
     for i, (n,s,e) in enumerate(gantt):
         color = bar_colors[list(names).index(n) % len(bar_colors)]
+        colors[n] = color
         y=pos[n]; plt.barh(y=y, width=(e-s), left=s, color=color); plt.text(s+(e-s)/2,y,n,ha="center",va="center")
-    plt.yticks(range(len(order)), order); plt.xlabel("Time"); plt.title(title); plt.tight_layout(); plt.show()
-
+    plt.yticks(range(len(order)), order); plt.xlabel("Time"); plt.title(title); 
+    # also plot deadline as vertical lines and label the job's name if it is a RT job
+    if RT:
+        for j in RT:
+            color = colors[j.name] if j.name in colors else 'r'
+            plt.axvline(x=j.deadline, color=color, linestyle='--')
+            plt.text(j.deadline, len(colors), f"{j.name}", rotation=45, verticalalignment='bottom',
+                     color=color)
+        plt.ylim(-1, len(order)+1)
+        
+    plt.tight_layout(); plt.show()
 
 if __name__ == "__main__":
     # Example usage
