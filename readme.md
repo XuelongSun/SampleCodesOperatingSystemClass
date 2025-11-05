@@ -58,4 +58,10 @@ The source files are organized into folders `c[x]` by chapters and `lab[x]` by L
 *Schedule algorithms on lab3' CPU*
 + `templates.md`: template for writing the report of the Lab4 assignment. 
 
+#### lab5
+*Memory Allocation*
++ `run.py`: testing demo scripts for memory allocation
++ `memory.py`: start-file of implementing fixed and dynamic memory allocation methods.
++ `templates.md`: template for writing the report of the Lab5 assignment. 
+
 
