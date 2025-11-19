@@ -64,4 +64,7 @@ The source files are organized into folders `c[x]` by chapters and `lab[x]` by L
 + `memory.py`: start-file of implementing fixed and dynamic memory allocation methods.
 + `templates.md`: template for writing the report of the Lab5 assignment. 
 
-
+#### lab6
+*Memory Management and Virtual Memory*
++ `memory.py`: start-file of implementing page-based memory management and virtual memory.
++ `templates.md`: template for writing the report of the Lab6 assignment. 
