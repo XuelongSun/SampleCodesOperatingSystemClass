@@ -36,6 +36,10 @@ The source files are organized into folders `c[x]` by chapters and `lab[x]` by L
 + `1_schedule`: implementation of the job/process/realtime scheduling algorithms and their analysis
 + `2_deadlock`: deadlock demos and algorithms for prevent, avoid (banker's algorithm) and detecting deadlock.
 
+#### c7-8
+*File System*
+
+
 #### lab1 
 *OS interface of Linux*
 + `templates.md`: template for writing the report of the Lab1 assignment. 

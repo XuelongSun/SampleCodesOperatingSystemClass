@@ -40,14 +40,14 @@ def simulate(tasks: List[Job], policy: str):
 
 if __name__ == "__main__":
     # Example usage
-    tasks = [Job('P1',0,4), Job('P2',1,4), Job('P3',2,3),Job('P4',5,3)]
+    tasks = [Job('A',0,2), Job('B',2,4), Job('C',4,2),Job('D',6,3)]
     # tasks = [Job("P0",0,5,2), Job("P1",0,3,0), Job("P2",2,4,1)]
-    gantt = simulate(tasks, "SJF")
+    gantt = simulate(tasks, "FCFS")
     
     arrivals = {j.name:j.arrive for j in tasks}
     total = sum(j.svc for j in tasks)
     
     m, per = metrics_gantt(gantt, arrivals, total)
     
-    plot_gantt(gantt, "SJF Scheduling")
+    plot_gantt(gantt, "FCFS Scheduling")
     print("Analysis:", m, per)

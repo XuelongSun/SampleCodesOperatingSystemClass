@@ -73,14 +73,14 @@ def simulate_mlfq(tasks: List[Process], quanta: Tuple[int,...]=(2,4)):
 
 if __name__ == "__main__":
     # Example usage
-    process = [Process('P1',0,6), Process('P2',2,4)]
+    process = [Process('A',0,2), Process('B',2,4), Process('C',4,2), Process('D',6,3)]
     # process = [Process("P0",0,3), Process("P1",1,6), Process("P2",2,4), Process("P3",4,2)]
-    gantt = simulate_rr(process, quantum=3)
+    gantt = simulate_rr(process, quantum=1)
     
     # gantt = simulate_mlfq(process,(1,2))
     arrivals = {j.name:j.arrive for j in process}
     total = sum(j.svc for j in process)
     m, per = metrics_gantt(gantt, arrivals, total)
-    plot_gantt(gantt, "Round Robin Scheduling (quantum=3)")
+    plot_gantt(gantt, "Round Robin Scheduling (quantum=1)")
     # plot_gantt(gantt, "Multi-level feedback queue (quantum=1,2)")
     print("Analysis:", m, per)

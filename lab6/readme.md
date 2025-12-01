@@ -49,10 +49,10 @@ class PageMemory:
             self.modified = False
     ```
 + 创建页表`create_page_table(self, pid, num_pages)`
-此函数为进程创建页表，给页表中的每一项属性进行赋值，如`self.present = True`, 表明此页
+此函数为进程创建页表，给页表中的每一项属性进行赋值，如`self.frame=2`表面此页对应的物理块号为`2`，`self.present = True`, 表明此页已加载到内存。为简单起见，`disk_location`不做硬性要求，感兴趣的同学可以去实现。
 
 + 内存物理块分配
-  简单起见，我们为每一页随机分配一个空闲物理块
+  简单起见，我们为每一页随机分配一个空闲物理块。
 
 + 可视化
 这里的`MemoryFrame`类的实现能更好地进行物理块的可视化：
@@ -79,6 +79,7 @@ class PageMemory:
 3. 测试时会提供进程的页面访问顺序，所以需要有`access_page(self, pid, page)`函数
 4. 需要有支持页面置换算法的数据结构的定义。
 5. 进行缺页率计算的变量`self.page_faults`,`self.page_hits`
+6. 对与外存的互动操作不做要求。例如，如果页表项的`modified=True`,此页被换出时，需要写回外存。
 ```py
 class RequestPageMemory:
     def __init__(self, physical_size=1024, page_size=1,
