@@ -39,7 +39,6 @@ The source files are organized into folders `c[x]` by chapters and `lab[x]` by L
 #### c7-8
 *File System*
 
-
 #### lab1 
 *OS interface of Linux*
 + `templates.md`: template for writing the report of the Lab1 assignment. 
@@ -72,3 +71,12 @@ The source files are organized into folders `c[x]` by chapters and `lab[x]` by L
 *Memory Management and Virtual Memory*
 + `memory.py`: start-file of implementing page-based memory management and virtual memory.
 + `templates.md`: template for writing the report of the Lab6 assignment. 
+
+#### lab7
+*Filesystem - inode*
++ `fs.py`: start-file of implementing inode-based filesystem with functionalities like `touch`,`mkdir`,`ls`, and testing them use a simple shell simulator/
++ `templates.md`: template for writing the report of the Lab7 assignment. 
+
+#### lab8
+*Function Integration via Shell*
++ `templates.md`: template for the user manual of your OS!
